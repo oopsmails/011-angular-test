@@ -1,0 +1,60 @@
+<div class="mainContainer">
+    <h1>Root cause analysis Dashboard</h1>
+    <nav class="navbar">
+        <input class="form-control" type="text" name="causeName" [(ngModel)]="causeName"
+            placeholder="Search for failure signature...." />
+    </nav>
+
+    <table>
+        <thead>
+            <tr>
+                <!--<th>id</th>-->
+                <th>commit</th>
+                <th>gerrit</th>
+                <th>failure_signature</th>
+                <!--<th>commit_message</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <!--<tr *ngFor= "let cm of wifi_gerrit_commit_messages?.posts">-->
+            <tr *ngFor="let cm of causes | RootCauseFilterPipe: causeName">
+                <!--<td>{{cm._id}}</td>-->
+                <td>{{ cm.commit_id }}</td>
+                <td>{{ cm.gerrit }}</td>
+                <td>{{ cm.Failure_signature }}</td>
+                <!--<td>{{cm.commit_message}}</td>-->
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Search in Component</h1>
+
+    <input
+        id="search"
+        type="text"
+        [(ngModel)]="searchStr"
+        (keyup)="onSearch($event)"
+    />
+
+    <table>
+        <thead>
+            <tr>
+                <!--<th>id</th>-->
+                <th>commit</th>
+                <th>gerrit</th>
+                <th>failure_signature</th>
+                <!--<th>commit_message</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <!--<tr *ngFor= "let cm of wifi_gerrit_commit_messages?.posts">-->
+            <tr *ngFor="let cm of searchResult">
+                <!--<td>{{cm._id}}</td>-->
+                <td>{{ cm.commit_id }}</td>
+                <td>{{ cm.gerrit }}</td>
+                <td>{{ cm.Failure_signature }}</td>
+                <!--<td>{{cm.commit_message}}</td>-->
+            </tr>
+        </tbody>
+    </table>
+</div>
