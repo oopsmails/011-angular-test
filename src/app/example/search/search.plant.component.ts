@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { fromEvent, map, switchMap } from 'rxjs';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-search-plant',
@@ -8,18 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPlantComponent implements OnInit {
   title = 'Search Plant';
-  httpClient: any;
+  httpClient: HttpClient;
   searchStr = '';
-  allItems = [];
-  constructor(httpClient: HttpClient) {
+  // allItems: any;
+  allItems: any[];
+
+  @ViewChild('search', { static: true }) search: ElementRef;
+  States: any[];
+
+  constructor(httpClient: HttpClient, private dataService: DataService) {
     this.httpClient = httpClient;
   }
+
   ngOnInit() {
     this.httpClient.get('assets/plants.json').subscribe(data => {
       console.log('Loading plants ..... ');
       if (data) {
-        this.allItems = data;
+        // this.allItems = data;
+        this.allItems = Object.values(data);
       }
     });
+
+    fromEvent(this.search.nativeElement, 'input')
+      .pipe(
+        map((event: any) => event.target.value),
+        switchMap((searchText: string) => this.dataService.getData(searchText))
+      )
+      .subscribe((res) => {
+        this.States = res;
+        console.log(res);
+      });
   }
 }

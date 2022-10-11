@@ -5,15 +5,22 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PlantFilterPipe implements PipeTransform {
 
-  transform(value: any, param: any): any {
-    console.log(`PlantFilterPipe: `, param);
-    return value.filter(
+  transform(items: any[], searchText: any): any[] {
+    if (!items) {
+      return [];
+    }
+    if (!searchText) {
+      return items;
+    }
+    console.log(`PlantFilterPipe: `, searchText);
+
+    return items.filter(
       (x) =>
-        param == null ||
-        param == '' ||
-        x?.name.toLocaleLowerCase().includes(param.toLocaleLowerCase()) ||
-        x?.scientific_name.toLocaleLowerCase().includes(param.toLocaleLowerCase()) ||
-        x?.family?.toLocaleLowerCase().includes(param.toLocaleLowerCase())
+        searchText == null ||
+        searchText == '' ||
+        x?.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()) ||
+        x?.scientific_name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()) ||
+        x?.family?.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
     );
   }
 
