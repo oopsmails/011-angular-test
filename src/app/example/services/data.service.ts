@@ -15,7 +15,7 @@ import {
 export class DataService {
     constructor() { }
     getData(filterText: string) {
-        const timertTime = Math.floor(Math.random() * 5000);
+        const timertTime = Math.floor(Math.random() * 8000);
         console.log(`SearchText: ${filterText},Time taken by API: ${timertTime} milliseconds`)
         return timer(timertTime).pipe(
             map((x) =>

@@ -32,8 +32,9 @@ export class InstitutionComponent implements OnInit {
     const value = "" + event.target.value;
     console.log(`onSearch ..... value = `, value);
     console.log(`onSearch ..... searchStr = `, this.searchStr);
+    console.log(`onSearch ..... value.length = `, value.length);
 
-    if (value.length >= 3) {
+    if (value.length >= 2) {
       this.httpClient.get(this.API_URL + '?text=' + this.searchStr + '&limit=5')
           .subscribe(
             data => {

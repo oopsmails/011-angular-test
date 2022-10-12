@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { fromEvent, map, switchMap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, fromEvent, map, mergeMap, switchMap } from 'rxjs';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -34,6 +34,8 @@ export class SearchPlantComponent implements OnInit {
     fromEvent(this.search.nativeElement, 'input')
       .pipe(
         map((event: any) => event.target.value),
+        debounceTime(500),
+        distinctUntilChanged(),
         switchMap((searchText: string) => this.dataService.getData(searchText))
       )
       .subscribe((res) => {
