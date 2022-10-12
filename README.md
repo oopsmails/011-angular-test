@@ -36,6 +36,8 @@
 - Using component http
 - Using switchMap
 - Using debounceTime and distinctUntilChanged
-
+- ref: https://www.credera.com/insights/using-rxjs-switchmap-angular-7-reactive-forms-cancel-pending-requests
+- demo: https://rslayter.github.io/switchmap-example/
+- github: https://github.com/rslayter/switchmap-example
 
 
