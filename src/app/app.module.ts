@@ -17,6 +17,7 @@ import { InstitutionFilterPipe } from './example/search/filter/institution.filte
 import { SearchPlantComponent } from './example/search/search.plant.component';
 import { PlantFilterPipe } from './example/search/filter/plant.filter.pipe';
 import { InstitutionComponent } from './example/institution/institution.component';
+import { StateComponent } from './example/state/state.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -42,6 +43,7 @@ export function getSettingsFactory(appInitService: AppInitService) {
     SearchInstitutionComponent,
     SearchPlantComponent,
     InstitutionComponent,
+    StateComponent,
     CityFilterPipe,
     PlantFilterPipe,
     InstitutionFilterPipe,

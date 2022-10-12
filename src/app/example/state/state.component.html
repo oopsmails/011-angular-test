@@ -1,0 +1,21 @@
+<div class="mainContainer">
+    <h1>Search State</h1>
+
+    <input type="text" #search>
+    <!-- <div *ngFor="let state of States">{{state.text}}</div> -->
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>text</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let state of States">
+                <td>{{ state.id }}</td>
+                <td>{{ state.text }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

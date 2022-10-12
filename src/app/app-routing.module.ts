@@ -5,6 +5,7 @@ import { InstitutionComponent } from './example/institution/institution.componen
 import { SearchCauseComponent } from './example/search/search.cause.component';
 import { SearchCityComponent } from './example/search/search.city.component';
 import { SearchInstitutionComponent } from './example/search/search.institution.component';
+import { StateComponent } from './example/state/state.component';
 import { SearchPlantComponent } from './example/search/search.plant.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'example/search-inst', component: SearchInstitutionComponent },
   { path: 'example/inst', component: InstitutionComponent },
   { path: 'example/search-plant', component: SearchPlantComponent },
+  { path: 'example/state', component: StateComponent },
   { path: '**', component: SearchPlantComponent }
 ];
 @NgModule({
