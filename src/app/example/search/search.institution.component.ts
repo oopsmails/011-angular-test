@@ -6,7 +6,7 @@ import { APP_CONFIG_JSON } from 'src/app/core/settings';
 @Component({
   selector: 'search-institute',
   templateUrl: './search.institution.component.html',
-  styleUrls: ['./search.institution.component.scss']
+  // styleUrls: ['./search.institution.component.scss']
 })
 export class SearchInstitutionComponent implements OnInit {
 

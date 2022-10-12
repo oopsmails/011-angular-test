@@ -7,7 +7,7 @@ import { APP_CONFIG_JSON } from 'src/app/core/settings';
 @Component({
   selector: 'app-institution',
   templateUrl: './institution.component.html',
-  styleUrls: ['./institution.component.scss']
+  // styleUrls: ['./institution.component.scss']
 })
 export class InstitutionComponent implements OnInit {
 
