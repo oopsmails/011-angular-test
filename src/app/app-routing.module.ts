@@ -7,6 +7,7 @@ import { SearchCityComponent } from './example/search/search.city.component';
 import { SearchInstitutionComponent } from './example/search/search.institution.component';
 import { StateComponent } from './example/state/state.component';
 import { SearchPlantComponent } from './example/search/search.plant.component';
+import { InstitutionComponent2 } from './example/institution2/institution.component2';
 
 const routes: Routes = [
   { path: '', component: SearchPlantComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'example/search-cause', component: SearchCauseComponent },
   { path: 'example/search-inst', component: SearchInstitutionComponent },
   { path: 'example/inst', component: InstitutionComponent },
+  { path: 'example/inst2', component: InstitutionComponent2 },
   { path: 'example/search-plant', component: SearchPlantComponent },
   { path: 'example/state', component: StateComponent },
   { path: '**', component: SearchPlantComponent }
