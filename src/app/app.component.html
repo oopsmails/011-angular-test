@@ -1,3 +1,9 @@
-<navbar-fixed></navbar-fixed>
-<div class="navbar-fix-place-holder"></div>
-<router-outlet></router-outlet>
+<div>
+  <ngx-select
+    [formControl]="formControl"
+    [items]="items$ | async"
+    [noAutoComplete]="false"
+    optionTextField="title"
+  ></ngx-select>
+  Selected: {{ formControl.value }}
+</div>
