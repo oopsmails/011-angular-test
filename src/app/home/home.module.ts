@@ -5,20 +5,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { HighlighterPipe } from '../shared/pipes/highlighter.pipe';
+import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 
-const routes: Routes = [{ path: 'home/home', component: HomeComponent }];
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+];
 
 @NgModule({
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    RouterModule,
     HttpClientModule,
     BrowserModule,
     TranslateModule.forRoot(),
+    SharedModule,
     RouterModule.forChild(routes),
-    HighlighterPipe,
   ],
   exports: [],
 })
