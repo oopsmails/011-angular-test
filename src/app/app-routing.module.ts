@@ -1,3 +1,5 @@
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,7 +11,7 @@ import { NgxSelectModule } from 'ngx-select-ex';
 const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'home', component: HomeComponent },
-  { path: '**', component: AppComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 @NgModule({
   imports: [
@@ -17,6 +19,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     NgxSelectModule,
+    SharedModule,
     RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],
