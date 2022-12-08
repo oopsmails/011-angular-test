@@ -14,7 +14,7 @@ export class Card {
   }
 }
 
-export interface ExampleItemData {
+export interface ExampleItem {
   id: number;
   name: string;
   text?: string;
