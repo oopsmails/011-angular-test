@@ -17,9 +17,10 @@ import { faBell as farBell } from '@fortawesome/free-regular-svg-icons';
 import { faBell as fasBell } from '@fortawesome/free-solid-svg-icons';
 import { library as legacyLibrary } from '@fortawesome/fontawesome-svg-core';
 import { UtilsService } from './services/utils.service';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
-  declarations: [HighlighterPipe],
+  declarations: [HighlighterPipe, NotFoundComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -36,6 +37,7 @@ import { UtilsService } from './services/utils.service';
     ReactiveFormsModule,
     HttpClientModule,
     HighlighterPipe,
+    NotFoundComponent,
   ],
   providers: [UtilsService],
 })

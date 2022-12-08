@@ -1,0 +1,16 @@
+<h1>Ngx Test</h1>
+
+<div>
+  <ngx-select
+    [formControl]="formControl"
+    [items]="items$ | async"
+    [noAutoComplete]="false"
+    optionTextField="title"
+  ></ngx-select>
+  Selected: {{ formControl.value }}
+</div>
+
+<hr />
+
+<hr />
+<p><a routerLink="">routerLink home</a></p>
