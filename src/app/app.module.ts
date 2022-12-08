@@ -16,9 +16,9 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     NgxSelectModule,
     HttpClientModule,
-    AppRoutingModule,
     SharedModule,
     HomeModule,
+    AppRoutingModule, // need to be at last, otherwise NotFoundComponent is at front
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

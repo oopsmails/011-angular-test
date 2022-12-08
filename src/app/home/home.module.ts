@@ -11,7 +11,7 @@ import { NgxTestComponent } from './pages/ngx-test/ngx.test.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'ngx-text', component: NgxTestComponent },
+  { path: 'home/ngx-test', component: NgxTestComponent },
 ];
 
 @NgModule({
