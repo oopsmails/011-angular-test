@@ -1,27 +1,24 @@
-//app-routing.module.ts
+import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { InstitutionComponent } from './example/institution/institution.component';
-import { SearchCauseComponent } from './example/search/search.cause.component';
-import { SearchCityComponent } from './example/search/search.city.component';
-import { SearchInstitutionComponent } from './example/search/search.institution.component';
-import { StateComponent } from './example/state/state.component';
-import { SearchPlantComponent } from './example/search/search.plant.component';
-import { InstitutionComponent2 } from './example/institution2/institution.component2';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSelectModule } from 'ngx-select-ex';
 
 const routes: Routes = [
-  { path: '', component: SearchPlantComponent },
-  { path: 'example/search-city', component: SearchCityComponent },
-  { path: 'example/search-cause', component: SearchCauseComponent },
-  { path: 'example/search-inst', component: SearchInstitutionComponent },
-  { path: 'example/inst', component: InstitutionComponent },
-  { path: 'example/inst2', component: InstitutionComponent2 },
-  { path: 'example/search-plant', component: SearchPlantComponent },
-  { path: 'example/state', component: StateComponent },
-  { path: '**', component: SearchPlantComponent }
+  { path: '', component: AppComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '**', component: AppComponent },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxSelectModule,
+    RouterModule.forRoot(routes),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { } 
+export class AppRoutingModule {}
