@@ -15,24 +15,21 @@ export class HomeComponent implements OnInit, OnDestroy {
   private onDestory$: Subject<boolean> = new Subject();
   cards$: Observable<Card[]>;
 
-  public items$: Observable<ExampleItemData[]>;
-  public formControl = new FormControl(3);
-
   constructor(private router: Router, private homeDataService: HomeDataService) {}
 
   ngOnInit() {
     this.cards$ = this.homeDataService.getCards();
-    this.items$ = of([
-      { id: 1, title: 'example 1', text: 'ttt' },
-      { id: 2, title: 'example 2' },
-      { id: 3, title: 'example 3' },
-      { id: 4, title: 'example 4' },
-      { id: 5, title: 'example 5' },
-      { id: 6, title: 'example 6' },
-      { id: 7, title: 'example 7' },
-      { id: 8, title: 'example 8' },
-      { id: 9, title: 'example 9' },
-    ]).pipe(delay(2000)); // simulate loading data
+    // this.items$ = of([
+    //   { id: 1, title: 'example 1', text: 'ttt' },
+    //   { id: 2, title: 'example 2' },
+    //   { id: 3, title: 'example 3' },
+    //   { id: 4, title: 'example 4' },
+    //   { id: 5, title: 'example 5' },
+    //   { id: 6, title: 'example 6' },
+    //   { id: 7, title: 'example 7' },
+    //   { id: 8, title: 'example 8' },
+    //   { id: 9, title: 'example 9' },
+    // ]).pipe(delay(2000)); // simulate loading data
   }
 
   navToPage(page) {
