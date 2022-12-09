@@ -19,6 +19,7 @@ import { library as legacyLibrary } from '@fortawesome/fontawesome-svg-core';
 import { UtilsService } from './services/utils.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SharedDataService } from './services/shared.data.service';
 
 @NgModule({
   declarations: [HighlighterPipe, NotFoundComponent, FooterComponent],
@@ -41,7 +42,7 @@ import { FooterComponent } from './components/footer/footer.component';
     NotFoundComponent,
     FooterComponent,
   ],
-  providers: [UtilsService],
+  providers: [UtilsService, SharedDataService],
 })
 export class SharedModule {
   constructor(library: FaIconLibrary) {

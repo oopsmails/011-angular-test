@@ -13,9 +13,3 @@ export class Card {
     this.hide = !this.hide;
   }
 }
-
-export interface ExampleItem {
-  id: number;
-  name: string;
-  text?: string;
-}

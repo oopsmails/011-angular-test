@@ -1,18 +1,9 @@
-export interface SampleArrayItem {
+export interface RandomItem {
   id: number;
   name: string;
-  description?: string;
+  desc?: string;
+  text?: string;
   price?: number;
   imageUrl?: string;
   quantity?: number;
-}
-
-export interface OptionItem {
-  optionId: number;
-  optionTitle: string;
-}
-
-export interface RandomItem {
-  id: number;
-  desc: string;
 }
