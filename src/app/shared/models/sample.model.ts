@@ -7,3 +7,7 @@ export interface RandomItem {
   imageUrl?: string;
   quantity?: number;
 }
+
+export interface RsSearchResult<T> {
+  resultList: T[];
+}
