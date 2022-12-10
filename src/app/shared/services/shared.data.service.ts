@@ -71,6 +71,7 @@ export class SharedDataService implements OnDestroy {
       return of(this.defaultRandomItemSearchRs);
     }
 
+    // if 30000, then browser freezing when rendering search result items because too many
     const items: RandomItem[] = this.makeMockRandomItems(300).filter((item) =>
       item.name.includes(searchText)
     );
