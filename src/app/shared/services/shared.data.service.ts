@@ -45,7 +45,7 @@ export class SharedDataService implements OnDestroy {
     this.timer$.subscribe((x) => this.updateData());
   }
 
-  public dataSource$ = this.getRandomItems().pipe(take(1));
+  public dataSource$ = this.getRandomItems(50).pipe(take(1));
 
   public itemReplay$ = this._itemData$.pipe(
     switchMap((resp) => this.dataSource$),
@@ -58,11 +58,10 @@ export class SharedDataService implements OnDestroy {
   }
 
   getRandomItems(numOfItems?: number, delayInMs?: number): Observable<RandomItem[]> {
-    if (!delayInMs) {
-      delayInMs = 1000;
-    }
-
     const items: RandomItem[] = this.makeMockRandomItems(numOfItems);
+    if (!delayInMs) {
+      return of(items);
+    }
     return of(items).pipe(delay(delayInMs));
   }
 

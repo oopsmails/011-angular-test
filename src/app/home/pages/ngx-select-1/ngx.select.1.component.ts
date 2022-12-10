@@ -14,17 +14,20 @@ import { HomeDataService } from '../../home.data.service';
 export class NgxSelect1Component implements OnInit, OnDestroy {
   private onDestory$: Subject<boolean> = new Subject();
 
-  public formControl1 = new FormControl(3);
-  public formControl2 = new FormControl(3);
+  public formControl1 = new FormControl(2);
+  public formControl2 = new FormControl(1);
 
   public items: RandomItem[];
   public items$: Observable<RandomItem[]>;
+  public items2$: Observable<RandomItem[]>;
 
   constructor(private router: Router, private sharedDataService: SharedDataService) {}
 
   ngOnInit() {
     this.items$ = this.sharedDataService.getRandomItems();
     this.items$.subscribe((resp) => (this.items = resp));
+
+    this.items2$ = this.sharedDataService.getRandomItems(100, 1000);
   }
 
   ngOnDestroy() {
