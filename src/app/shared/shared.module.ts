@@ -18,9 +18,11 @@ import { faBell as fasBell } from '@fortawesome/free-solid-svg-icons';
 import { library as legacyLibrary } from '@fortawesome/fontawesome-svg-core';
 import { UtilsService } from './services/utils.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SharedDataService } from './services/shared.data.service';
 
 @NgModule({
-  declarations: [HighlighterPipe, NotFoundComponent],
+  declarations: [HighlighterPipe, NotFoundComponent, FooterComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -38,8 +40,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpClientModule,
     HighlighterPipe,
     NotFoundComponent,
+    FooterComponent,
   ],
-  providers: [UtilsService],
+  providers: [UtilsService, SharedDataService],
 })
 export class SharedModule {
   constructor(library: FaIconLibrary) {
