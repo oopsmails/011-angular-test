@@ -25,7 +25,12 @@ export class NgxSelect1Component implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.items$ = this.sharedDataService.getRandomItems();
-    this.items$.subscribe((resp) => (this.items = resp));
+    this.items$.subscribe((resp) => {
+      this.items = resp;
+      this.items.forEach((item) => {
+        item.customKey = item.id + ' - ' + item.name;
+      });
+    });
 
     this.items2$ = this.sharedDataService.getRandomItems(100, 1000);
   }
