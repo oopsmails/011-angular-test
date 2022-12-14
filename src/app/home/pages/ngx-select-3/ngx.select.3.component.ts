@@ -22,7 +22,7 @@ import { SharedDataService } from 'src/app/shared/services/shared.data.service';
   styleUrls: ['./ngx.select.3.component.scss'],
 })
 export class NgxSelect3Component implements OnInit, OnDestroy {
-  private onDestory$: Subject<boolean> = new Subject();
+  private onDestroy$: Subject<boolean> = new Subject();
 
   public formControl4 = new FormControl(3);
 
@@ -50,7 +50,7 @@ export class NgxSelect3Component implements OnInit, OnDestroy {
         console.error(err);
         return of(this.sharedDataService.makeMockRandomItems(0));
       }),
-      takeUntil(this.onDestory$)
+      takeUntil(this.onDestroy$)
     );
   }
 
@@ -66,7 +66,7 @@ export class NgxSelect3Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.onDestory$.next(true);
-    this.onDestory$.complete();
+    this.onDestroy$.next(true);
+    this.onDestroy$.complete();
   }
 }

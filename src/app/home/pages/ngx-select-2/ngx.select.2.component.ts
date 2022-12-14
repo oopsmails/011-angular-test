@@ -11,7 +11,7 @@ import { SharedDataService } from 'src/app/shared/services/shared.data.service';
   styleUrls: ['./ngx.select.2.component.scss'],
 })
 export class NgxSelect2Component implements OnInit, OnDestroy {
-  private onDestory$: Subject<boolean> = new Subject();
+  private onDestroy$: Subject<boolean> = new Subject();
 
   public formControl3 = new FormControl(3);
 
@@ -21,12 +21,12 @@ export class NgxSelect2Component implements OnInit, OnDestroy {
   constructor(private router: Router, private sharedDataService: SharedDataService) {}
 
   ngOnInit() {
-    this.items$ = this.sharedDataService.itemReplay$.pipe(takeUntil(this.onDestory$));
+    this.items$ = this.sharedDataService.itemReplay$.pipe(takeUntil(this.onDestroy$));
     this.items$.subscribe((resp) => (this.items = resp));
   }
 
   ngOnDestroy() {
-    this.onDestory$.next(true);
-    this.onDestory$.complete();
+    this.onDestroy$.next(true);
+    this.onDestroy$.complete();
   }
 }

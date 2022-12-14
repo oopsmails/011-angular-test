@@ -12,7 +12,7 @@ import { HomeDataService } from '../../home.data.service';
   styleUrls: ['./ngx.select.1.component.scss'],
 })
 export class NgxSelect1Component implements OnInit, OnDestroy {
-  private onDestory$: Subject<boolean> = new Subject();
+  private onDestroy$: Subject<boolean> = new Subject();
 
   public formControl1 = new FormControl(2);
   public formControl2 = new FormControl(1);
@@ -36,7 +36,7 @@ export class NgxSelect1Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.onDestory$.next(true);
-    this.onDestory$.complete();
+    this.onDestroy$.next(true);
+    this.onDestroy$.complete();
   }
 }

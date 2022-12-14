@@ -9,7 +9,7 @@ import { Card } from './models/home.models';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  private onDestory$: Subject<boolean> = new Subject();
+  private onDestroy$: Subject<boolean> = new Subject();
   cards$: Observable<Card[]>;
 
   constructor(private router: Router, private homeDataService: HomeDataService) {}
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.onDestory$.next(true);
-    this.onDestory$.complete();
+    this.onDestroy$.next(true);
+    this.onDestroy$.complete();
   }
 }

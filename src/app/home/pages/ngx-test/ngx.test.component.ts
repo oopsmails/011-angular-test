@@ -11,7 +11,7 @@ import { HomeDataService } from '../../home.data.service';
   styleUrls: ['./ngx.test.component.scss'],
 })
 export class NgxTestComponent implements OnInit, OnDestroy {
-  private onDestory$: Subject<boolean> = new Subject();
+  private onDestroy$: Subject<boolean> = new Subject();
 
   public items$: Observable<any[]>;
   public formControl = new FormControl(3);
@@ -23,7 +23,7 @@ export class NgxTestComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.onDestory$.next(true);
-    this.onDestory$.complete();
+    this.onDestroy$.next(true);
+    this.onDestroy$.complete();
   }
 }
