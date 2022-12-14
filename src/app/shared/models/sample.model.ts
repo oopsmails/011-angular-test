@@ -6,4 +6,9 @@ export interface RandomItem {
   price?: number;
   imageUrl?: string;
   quantity?: number;
+  customKey?: string;
+}
+
+export interface RsSearchResult<T> {
+  resultList: T[];
 }
