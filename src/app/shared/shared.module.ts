@@ -20,6 +20,7 @@ import { UtilsService } from './services/utils.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SharedDataService } from './services/shared.data.service';
+import { WikipediaService } from './services/wikipedia.service';
 
 @NgModule({
   declarations: [HighlighterPipe, NotFoundComponent, FooterComponent],
@@ -42,7 +43,7 @@ import { SharedDataService } from './services/shared.data.service';
     NotFoundComponent,
     FooterComponent,
   ],
-  providers: [UtilsService, SharedDataService],
+  providers: [UtilsService, SharedDataService, WikipediaService],
 })
 export class SharedModule {
   constructor(library: FaIconLibrary) {
