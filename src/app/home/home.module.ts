@@ -13,6 +13,7 @@ import { NgxSelect2Component } from './pages/ngx-select-2/ngx.select.2.component
 import { NgxSelect3Component } from './pages/ngx-select-3/ngx.select.3.component';
 import { NgbTypeaheadSearchComponent } from './pages/ngb-typeahead-search/ngb.typeahead.search.component';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbTypeaheadSearchScrollableComponent } from './pages/ngb-typeahead-search-scrollable/ngb.typeahead.search.scrollable.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +22,10 @@ const routes: Routes = [
   { path: 'home/ngx-select-2', component: NgxSelect2Component },
   { path: 'home/ngx-select-3', component: NgxSelect3Component },
   { path: 'home/ngb-typeahead-search', component: NgbTypeaheadSearchComponent },
+  {
+    path: 'home/ngb-typeahead-search-scrollable',
+    component: NgbTypeaheadSearchScrollableComponent,
+  },
 ];
 
 @NgModule({
@@ -31,6 +36,7 @@ const routes: Routes = [
     NgxSelect2Component,
     NgxSelect3Component,
     NgbTypeaheadSearchComponent,
+    NgbTypeaheadSearchScrollableComponent,
   ],
   imports: [
     CommonModule,

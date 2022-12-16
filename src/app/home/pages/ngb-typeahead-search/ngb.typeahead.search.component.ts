@@ -1,32 +1,21 @@
-import { NgIf, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import {
-  OperatorFunction,
-  Observable,
+  catchError,
   debounceTime,
   distinctUntilChanged,
-  tap,
-  switchMap,
-  catchError,
+  Observable,
   of,
+  OperatorFunction,
+  switchMap,
+  tap,
 } from 'rxjs';
+import { GitHubUser } from 'src/app/shared/models/shared.model';
+import { GithubService } from 'src/app/shared/services/github.service';
 import { WikipediaService } from 'src/app/shared/services/wikipedia.service';
 
 @Component({
   selector: 'ngb-typeahead-search',
-  //   standalone: true,
-  //   imports: [NgbTypeaheadModule, FormsModule, NgIf, JsonPipe],
   templateUrl: './ngb.typeahead.search.component.html',
-  //   providers: [WikipediaService],
-  //   styles: [
-  //     `
-  //       .form-control {
-  //         width: 300px;
-  //       }
-  //     `,
-  //   ],
   styleUrls: ['./ngb.typeahead.search.component.scss'],
 })
 export class NgbTypeaheadSearchComponent {
@@ -34,7 +23,11 @@ export class NgbTypeaheadSearchComponent {
   searching = false;
   searchFailed = false;
 
-  constructor(private _service: WikipediaService) {}
+  githubModel: any;
+  githubSearching = false;
+  githubSearchFailed = false;
+
+  constructor(private wikipediaService: WikipediaService, private githubService: GithubService) {}
 
   search: OperatorFunction<string, readonly string[]> = (text$: Observable<string>) =>
     text$.pipe(
@@ -42,7 +35,7 @@ export class NgbTypeaheadSearchComponent {
       distinctUntilChanged(),
       tap(() => (this.searching = true)),
       switchMap((term) =>
-        this._service.search(term).pipe(
+        this.wikipediaService.search(term).pipe(
           tap(() => (this.searchFailed = false)),
           catchError(() => {
             this.searchFailed = true;
@@ -52,4 +45,24 @@ export class NgbTypeaheadSearchComponent {
       ),
       tap(() => (this.searching = false))
     );
+
+  searchGithub: OperatorFunction<string, readonly string[]> = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      tap(() => (this.searching = true)),
+      switchMap((term) =>
+        this.githubService.search(term).pipe(
+          tap(() => (this.searchFailed = false)),
+          catchError(() => {
+            this.searchFailed = true;
+            return of([]);
+          })
+        )
+      ),
+      tap(() => (this.searching = false))
+    );
+
+  resultFormatter = (result: GitHubUser) => result.login;
+  inputFormatter = (result: GitHubUser) => result.login;
 }
