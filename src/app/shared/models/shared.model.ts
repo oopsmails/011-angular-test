@@ -20,3 +20,8 @@ export interface GitHubUser {
   type: string;
   score: number;
 }
+
+export interface State {
+  name: string;
+  flag_img?: string;
+}
