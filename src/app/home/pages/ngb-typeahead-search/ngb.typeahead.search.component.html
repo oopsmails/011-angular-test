@@ -14,11 +14,11 @@ A typeahead example that gets values from the <code>WikipediaService</code>
     <label for="typeahead-http" class="col-xs-3 col-sm-auto col-form-label"
       >Search for a wiki page:</label
     >
-    <div class="col">
+    <div class="col-wiki">
       <input
         id="typeahead-http"
         type="text"
-        class="form-control"
+        class="form-control form-control-wiki"
         [class.is-invalid]="searchFailed"
         [(ngModel)]="model"
         [ngbTypeahead]="search"
