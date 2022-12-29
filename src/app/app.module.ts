@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxSelectModule } from 'ngx-select-ex';
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -14,10 +14,11 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxSelectModule,
     HttpClientModule,
     SharedModule,
+    CoreModule,
     HomeModule,
+    BrowserAnimationsModule,
     AppRoutingModule, // need to be at last, otherwise NotFoundComponent is at front
   ],
   declarations: [AppComponent],
