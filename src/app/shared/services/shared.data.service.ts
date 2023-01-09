@@ -1,19 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
-import {
-  Observable,
-  of,
-  Subject,
-  delay,
-  take,
-  switchMap,
-  shareReplay,
-  switchMapTo,
-  BehaviorSubject,
-  timer,
-  takeUntil,
-  tap,
-} from 'rxjs';
+import { Subject, BehaviorSubject, timer, Observable, of } from 'rxjs';
+import { takeUntil, take, switchMap, shareReplay, delay, tap } from 'rxjs/operators';
+// import {
+//   Observable,
+//   BehaviorSubject,
+
+// } from 'rxjs';
+
 import { RandomItem, RsSearchResult } from 'src/app/shared/models/sample.model';
 
 @Injectable({

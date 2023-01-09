@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { take, Observable, of, delay, OperatorFunction } from 'rxjs';
-import { Car, CarGroup, RandomItem } from '../models';
+import { Observable, of } from 'rxjs';
+import { delay, take } from 'rxjs/operators';
+
+import { Car, CarGroup } from '../models';
 
 @Injectable({
   providedIn: 'root',

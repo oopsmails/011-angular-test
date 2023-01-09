@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { map, Observable, Subject, takeUntil, tap } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { takeUntil, map, tap } from 'rxjs/operators';
 import { Car } from 'src/app/shared/models';
 import { CarDataService } from 'src/app/shared/services/car.service';
 
