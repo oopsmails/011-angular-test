@@ -8,6 +8,8 @@ import { OopsLib002Module, SharedModule } from 'oops-lib002';
 import { HomeComponent } from './home.component';
 import { HelloComponent } from './pages/hello/hello.component';
 import { TestAroundComponent } from './pages/test-around/test.around.component';
+import { InputSaveComponent } from './componments/input-save/input-save.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,9 +18,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent, TestAroundComponent, HelloComponent],
+  declarations: [HomeComponent, TestAroundComponent, HelloComponent, InputSaveComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     OopsLib001Module,
